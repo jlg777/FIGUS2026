@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Figuritas Mundial 2026</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 1000px;
+        margin: 20px auto;
+        padding: 20px;
+        min-height: 100vh;
+        background-color: #f8fafc;
+      }
+
+      .banner {
+        width: min(100%, 280px);
+        margin: 0 auto 24px;
+        border-radius: 16px;
+        overflow: hidden;
+      }
+
+      .banner img {
+        width: 100%;
+        display: block;
+        opacity: 0.85;
+      }
+
+      h1 {
+        text-align: center;
+      }
+
+      #buscador {
+        width: 100%;
+        padding: 12px;
+        font-size: 16px;
+        margin-bottom: 20px;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+        gap: 10px;
+      }
+
+      .figurita {
+        background: #e8f5e9;
+        border: 1px solid #4caf50;
+        border-radius: 8px;
+        padding: 15px;
+        text-align: center;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Figuritas para cambiar - Mundial 2026</h1>
+
+    <div class="banner">
+      <img src="album.webp" alt="Álbum Mundial 2026" />
+    </div>
+
+    <input type="text" id="buscador" placeholder="Buscar figurita..." />
+
+    <div id="grid" class="grid"></div>
+
+    <script>
+      // Editá solamente esta lista
+      const figuritas = [126, 172, 209, 259, 287, 354, 355, 356, 364];
+
+      const grid = document.getElementById("grid");
+      const buscador = document.getElementById("buscador");
+
+      function mostrar(lista) {
+        grid.innerHTML = "";
+
+        lista.forEach((numero) => {
+          const div = document.createElement("div");
+          div.className = "figurita";
+          div.textContent = numero;
+          grid.appendChild(div);
+        });
+      }
+
+      mostrar(figuritas);
+
+      buscador.addEventListener("input", () => {
+        const texto = buscador.value.trim();
+
+        const filtradas = figuritas.filter((n) => n.toString().includes(texto));
+
+        mostrar(filtradas);
+      });
+    </script>
+  </body>
+</html>
