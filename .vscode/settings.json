@@ -2,5 +2,8 @@
   "cSpell.words": [
     "Figuritas"
   ],
-  "liveServer.settings.port": 5501
+  "liveServer.settings.port": 5501,
+  "chat.tools.terminal.autoApprove": {
+    "git remote": true
+  }
 }
